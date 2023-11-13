@@ -107,6 +107,11 @@ extension ViewController: SPTSessionManagerDelegate {
     func sessionManager(manager: SPTSessionManager, didFailWith error: Error) {
         if error.localizedDescription == "The operation couldn’t be completed. (com.spotify.sdk.login error 1.)" {
             print("AUTHENTICATE with WEBAPI")
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let secondVC = storyboard.instantiateViewController(withIdentifier: "tabBarController") as! UITabBarController
+                secondVC.modalPresentationStyle = .fullScreen
+                self.present(secondVC, animated: true, completion: nil)
         } else {
             print("AUTHENTICATE failed")
         }
@@ -119,6 +124,9 @@ extension ViewController: SPTSessionManagerDelegate {
     func sessionManager(manager: SPTSessionManager, didInitiate session: SPTSession) {
         appRemote.connectionParameters.accessToken = session.accessToken
         appRemote.connect()
+        print("before reached")
+        self.performSegue(withIdentifier: "testSegue", sender: self)
+        print("after reached")
     }
 }
 
