@@ -104,7 +104,7 @@ Account </string>
         <!--Discover-->
         <scene sceneID="uS1-gd-JHB">
             <objects>
-                <viewController id="OFZ-rH-7ks" sceneMemberID="viewController">
+                <viewController id="OFZ-rH-7ks" customClass="songVC" customModule="Moodify" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dc8-UC-BBC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -173,6 +173,7 @@ Account </string>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="didTapConnect:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2N7-NK-mMM"/>
+                                            <action selector="nextSongPressed:" destination="OFZ-rH-7ks" eventType="touchUpInside" id="u2q-vZ-cDi"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XKy-mk-eFE">
@@ -208,6 +209,7 @@ Account </string>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="didTapConnect:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uz5-j0-Mzr"/>
+                                            <action selector="likeSongPressed:" destination="OFZ-rH-7ks" eventType="touchUpInside" id="NpU-nO-0E3"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -232,6 +234,10 @@ Account </string>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Discover" image="music.mic" catalog="system" id="jXh-mT-Tgj"/>
+                    <connections>
+                        <outlet property="likeSong" destination="XKy-mk-eFE" id="hHe-Yb-yqd"/>
+                        <outlet property="nextSong" destination="cWF-Sq-qqp" id="6TZ-Wp-ZJs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hoa-K7-rEe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -240,7 +246,7 @@ Account </string>
         <!--Build Playlist-->
         <scene sceneID="3xT-R9-xcz">
             <objects>
-                <viewController id="L2C-Tq-NTd" sceneMemberID="viewController">
+                <viewController id="L2C-Tq-NTd" customClass="chooseMoodVC" customModule="Moodify" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zFb-qo-CDE">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -270,26 +276,16 @@ Account </string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Length" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mcP-hM-TJs">
-                                <rect key="frame" x="43" y="411" width="53" height="21"/>
+                                <rect key="frame" x="43" y="410" width="53" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="slC-bP-JUt">
-                                <rect key="frame" x="175" y="223" width="42" height="30"/>
-                                <menu key="menu" id="itu-SD-j28">
-                                    <children>
-                                        <command title="Classic Rock" id="jd3-4E-RiV"/>
-                                        <command title="Rap" id="1gb-WN-eZ3"/>
-                                    </children>
-                                </menu>
-                                <state key="normal" title="Genre"/>
-                            </button>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="eos-Js-YW2">
                                 <rect key="frame" x="41" y="345" width="315" height="31"/>
-                            </slider>
-                            <slider opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="91q-D6-rLL">
-                                <rect key="frame" x="39" y="458" width="315" height="30"/>
+                                <connections>
+                                    <action selector="obscurityChanged:" destination="L2C-Tq-NTd" eventType="valueChanged" id="Wi1-tP-wyD"/>
+                                </connections>
                             </slider>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vhn-kL-O7z">
                                 <rect key="frame" x="41" y="631" width="310" height="90"/>
@@ -318,6 +314,27 @@ Account </string>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="didTapConnect:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Bot-1m-Q9u"/>
+                                    <action selector="moodifyPressed:" destination="L2C-Tq-NTd" eventType="touchUpInside" id="KnU-8c-x6f"/>
+                                </connections>
+                            </button>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="4OU-8V-jwG">
+                                <rect key="frame" x="39" y="463" width="315" height="31"/>
+                                <connections>
+                                    <action selector="lengthChanged:" destination="L2C-Tq-NTd" eventType="valueChanged" id="nuE-Qe-pnh"/>
+                                </connections>
+                            </slider>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1MI-MW-R0I">
+                                <rect key="frame" x="175" y="216" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <menu key="menu" id="fEs-8Q-JxO">
+                                    <children>
+                                        <command title="Item 1" id="jQg-IQ-jvS"/>
+                                        <command title="Item 2" id="dcV-yq-9CH"/>
+                                    </children>
+                                </menu>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="genrePressed:" destination="L2C-Tq-NTd" eventType="touchUpInside" id="fGU-tC-75M"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -325,23 +342,19 @@ Account </string>
                         <color key="backgroundColor" red="0.50967037680000005" green="0.63364130259999996" blue="0.49017536639999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="DYU-sL-GsR" firstAttribute="trailing" secondItem="vhn-kL-O7z" secondAttribute="trailing" constant="42" id="1nW-9V-Fhx"/>
-                            <constraint firstItem="vhn-kL-O7z" firstAttribute="top" secondItem="91q-D6-rLL" secondAttribute="bottom" constant="144" id="4MN-t3-R5m"/>
                             <constraint firstItem="Ydl-WJ-gHd" firstAttribute="top" secondItem="DYU-sL-GsR" secondAttribute="top" constant="72" id="4XK-lR-pIO"/>
-                            <constraint firstItem="91q-D6-rLL" firstAttribute="leading" secondItem="DYU-sL-GsR" secondAttribute="leading" constant="41" id="4cQ-NY-3ds"/>
                             <constraint firstItem="Ppu-Me-bIQ" firstAttribute="top" secondItem="DYU-sL-GsR" secondAttribute="top" constant="69" id="5wP-DS-AyY"/>
                             <constraint firstItem="mcP-hM-TJs" firstAttribute="leading" secondItem="DYU-sL-GsR" secondAttribute="leading" constant="43" id="9uc-xg-v4Z"/>
+                            <constraint firstItem="4OU-8V-jwG" firstAttribute="top" secondItem="mcP-hM-TJs" secondAttribute="bottom" constant="32" id="As6-qu-tAD"/>
                             <constraint firstItem="etZ-oe-rrZ" firstAttribute="top" secondItem="Ydl-WJ-gHd" secondAttribute="bottom" constant="58" id="Axg-Ch-s1w"/>
                             <constraint firstItem="DYU-sL-GsR" firstAttribute="trailing" secondItem="eos-Js-YW2" secondAttribute="trailing" constant="39" id="CZy-SH-IXY"/>
                             <constraint firstItem="etZ-oe-rrZ" firstAttribute="top" secondItem="Ppu-Me-bIQ" secondAttribute="bottom" constant="65" id="LTl-K0-Qud"/>
-                            <constraint firstItem="DYU-sL-GsR" firstAttribute="trailing" secondItem="slC-bP-JUt" secondAttribute="trailing" constant="176" id="Lny-LV-eUS"/>
                             <constraint firstItem="DYU-sL-GsR" firstAttribute="trailing" secondItem="mcP-hM-TJs" secondAttribute="trailing" constant="297" id="OzW-qv-DgN"/>
-                            <constraint firstItem="mcP-hM-TJs" firstAttribute="top" secondItem="DYU-sL-GsR" secondAttribute="top" constant="411" id="RjV-3r-VGk"/>
                             <constraint firstItem="e4P-3G-LT3" firstAttribute="leading" secondItem="DYU-sL-GsR" secondAttribute="leading" constant="43" id="SL0-MF-iPd"/>
                             <constraint firstItem="eos-Js-YW2" firstAttribute="leading" secondItem="DYU-sL-GsR" secondAttribute="leading" constant="43" id="SpU-w9-FCY"/>
-                            <constraint firstItem="91q-D6-rLL" firstAttribute="top" secondItem="mcP-hM-TJs" secondAttribute="bottom" constant="26" id="YRF-pY-qNf"/>
-                            <constraint firstItem="eos-Js-YW2" firstAttribute="top" secondItem="slC-bP-JUt" secondAttribute="bottom" constant="92" id="Yo1-ol-qOq"/>
+                            <constraint firstItem="4OU-8V-jwG" firstAttribute="leading" secondItem="DYU-sL-GsR" secondAttribute="leading" constant="41" id="Uxt-Ic-2P8"/>
                             <constraint firstItem="Ydl-WJ-gHd" firstAttribute="centerX" secondItem="eos-Js-YW2" secondAttribute="centerX" id="ZG6-Sp-arE"/>
-                            <constraint firstItem="slC-bP-JUt" firstAttribute="top" secondItem="Ydl-WJ-gHd" secondAttribute="bottom" constant="98" id="b8Z-lR-n9b"/>
+                            <constraint firstItem="DYU-sL-GsR" firstAttribute="trailing" secondItem="4OU-8V-jwG" secondAttribute="trailing" constant="41" id="bTh-dc-Uu1"/>
                             <constraint firstItem="vhn-kL-O7z" firstAttribute="leading" secondItem="DYU-sL-GsR" secondAttribute="leading" constant="41" id="bzz-rg-J2j"/>
                             <constraint firstItem="DYU-sL-GsR" firstAttribute="trailing" secondItem="e4P-3G-LT3" secondAttribute="trailing" constant="275" id="dCF-2r-26D"/>
                             <constraint firstItem="e4P-3G-LT3" firstAttribute="top" secondItem="etZ-oe-rrZ" secondAttribute="bottom" constant="98" id="eXU-8b-PGf"/>
@@ -349,15 +362,18 @@ Account </string>
                             <constraint firstItem="DYU-sL-GsR" firstAttribute="bottom" secondItem="vhn-kL-O7z" secondAttribute="bottom" constant="72" id="efC-Xc-G0K"/>
                             <constraint firstItem="eos-Js-YW2" firstAttribute="leading" secondItem="mcP-hM-TJs" secondAttribute="trailing" constant="-53" id="fmm-4Z-C6a"/>
                             <constraint firstItem="DYU-sL-GsR" firstAttribute="trailing" secondItem="Ppu-Me-bIQ" secondAttribute="trailing" constant="11" id="gLI-n9-z5C"/>
-                            <constraint firstItem="slC-bP-JUt" firstAttribute="leading" secondItem="DYU-sL-GsR" secondAttribute="leading" constant="175" id="lEi-4f-7VG"/>
-                            <constraint firstItem="DYU-sL-GsR" firstAttribute="trailing" secondItem="91q-D6-rLL" secondAttribute="trailing" constant="41" id="lYO-pO-DsG"/>
-                            <constraint firstItem="slC-bP-JUt" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="etZ-oe-rrZ" secondAttribute="trailing" constant="8" symbolic="YES" id="lep-aH-j6W"/>
                             <constraint firstItem="Ppu-Me-bIQ" firstAttribute="leading" secondItem="DYU-sL-GsR" secondAttribute="leading" constant="10" id="nMA-Ik-hJM"/>
+                            <constraint firstItem="mcP-hM-TJs" firstAttribute="top" secondItem="eos-Js-YW2" secondAttribute="bottom" constant="35" id="ppg-NL-Scq"/>
                             <constraint firstItem="Ydl-WJ-gHd" firstAttribute="leading" secondItem="DYU-sL-GsR" secondAttribute="leading" constant="13" id="siz-HU-ge7"/>
                             <constraint firstItem="etZ-oe-rrZ" firstAttribute="leading" secondItem="DYU-sL-GsR" secondAttribute="leading" constant="43" id="wwm-dZ-Fmq"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Build Playlist" image="music.note.list" catalog="system" selectedImage="music.note.list" id="Tzx-Yv-IsH"/>
+                    <connections>
+                        <outlet property="chooseGenre" destination="1MI-MW-R0I" id="1it-cM-yeP"/>
+                        <outlet property="lengthSlider" destination="4OU-8V-jwG" id="NVf-z9-WlZ"/>
+                        <outlet property="obscuritySlider" destination="eos-Js-YW2" id="KJD-Mb-2m1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gWm-q1-TyM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
