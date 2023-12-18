@@ -17,6 +17,7 @@
 		D03A0F1E2AF2A3CF005274D4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D03A0F1C2AF2A3CF005274D4 /* LaunchScreen.storyboard */; };
 		D0A7DCBB2B0D480800E86C91 /* chooseMoodVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A7DCBA2B0D480800E86C91 /* chooseMoodVC.swift */; };
 		D0A7DCBD2B0D4B2200E86C91 /* songVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A7DCBC2B0D4B2200E86C91 /* songVC.swift */; };
+		F4502B702B1BCA2B000A7195 /* PlaylistDisplayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4502B6F2B1BCA2B000A7195 /* PlaylistDisplayVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		D03A0F1F2AF2A3CF005274D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D0A7DCBA2B0D480800E86C91 /* chooseMoodVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chooseMoodVC.swift; sourceTree = "<group>"; };
 		D0A7DCBC2B0D4B2200E86C91 /* songVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = songVC.swift; sourceTree = "<group>"; };
+		F4502B6F2B1BCA2B000A7195 /* PlaylistDisplayVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistDisplayVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 				D03A0F152AF2A3CD005274D4 /* ViewController.swift */,
 				D0A7DCBA2B0D480800E86C91 /* chooseMoodVC.swift */,
 				D0A7DCBC2B0D4B2200E86C91 /* songVC.swift */,
+				F4502B6F2B1BCA2B000A7195 /* PlaylistDisplayVC.swift */,
 				D03A0F172AF2A3CD005274D4 /* Main.storyboard */,
 				D03A0F1A2AF2A3CF005274D4 /* Assets.xcassets */,
 				D03A0F1C2AF2A3CF005274D4 /* LaunchScreen.storyboard */,
@@ -159,6 +162,7 @@
 				D03A0F122AF2A3CD005274D4 /* AppDelegate.swift in Sources */,
 				D03A0F142AF2A3CD005274D4 /* SceneDelegate.swift in Sources */,
 				099B57AB2AFFF94100FAC844 /* Constants.swift in Sources */,
+				F4502B702B1BCA2B000A7195 /* PlaylistDisplayVC.swift in Sources */,
 				D0A7DCBD2B0D4B2200E86C91 /* songVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -307,7 +311,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = GNFRW99A73;
+				DEVELOPMENT_TEAM = F23ZW85T7K;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Moodify",
@@ -344,7 +348,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = GNFRW99A73;
+				DEVELOPMENT_TEAM = F23ZW85T7K;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Moodify",

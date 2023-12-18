@@ -8,6 +8,8 @@
 import Foundation
 
 class songVC: UIViewController {
+    var accessToken: String?
+
     
     @IBOutlet weak var nextSong: UIButton!
     @IBOutlet weak var likeSong: UIButton!

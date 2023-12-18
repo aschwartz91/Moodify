@@ -8,7 +8,7 @@
 import Foundation
 
 let accessTokenKey = "access-token-key"
-let redirectUri = URL(string:"moodify://")!
+let redirectUri = URL(string:"moodify://spotify-login-callback")!
 let spotifyClientId = "100b2d97a8354e4b947da35b0dcb9c51"
 let spotifyClientSecretKey = "0263f0106906478a92c7598011b85e62"
 
